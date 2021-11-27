@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark-grey: #262626;
+    --light-grey: #545454;
+    --green: #e9edc9;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    color: var(--light-grey);
+}
+
+.navbar {
+    width: 100%;
+    min-height: 5vh;
+    transition: all .2s ease;
+}
+
+.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ececec;
+    z-index: 100;
+}
+
+.navbar .nav-item,
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: var(--dark-grey);
+}
+
+.navbar .navbar-brand {
+    font-size: 32px;
+}
+
+.navbar .nav-item:hover {
+    text-decoration: underline;
+}
+
+.landing h1 {
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.landing .btn {
+    border-radius: 0;
+}
+
+.advantages {
+    margin-top: 100px;
+}
+
+.advantages h2 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 48px;
+    color: var(--dark-grey);
+}
+
+.services {
+    margin-top: 100px;
+}
+
+.services h2 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 48px;
+    color: var(--dark-grey);
+}
+
+.services h6 {
+    width: 60%;
+    line-height: 1.5;
+}
+
+.services .service {
+    transition: all 0.3s ease;
+}
+
+.services .service:hover {
+    background-color: #ececec;
+}
+
+footer {
+    margin-top: 100px;
+    background-color: #ececec;
+}
+
+footer a.phone {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 48px;
+    color: var(--light-grey);
+}
+
+footer p {
+    font-size: 22px;
+}
+
+footer a.email {
+    color: var(--light-grey);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    padding: 0 20px;
+    box-shadow: 0 0px 20px rgb(184, 184, 184);
+}
+
+.back-to-top:hover {
+    background: var(--green);
+}
