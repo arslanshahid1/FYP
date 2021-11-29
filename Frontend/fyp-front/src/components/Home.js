@@ -1,32 +1,14 @@
-import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import BackToTop from "./BackToTop";
 
 
 
 
-function LandingPage() {
-    // The back-to-top button is hidden at the beginning
-  const [showButton, setShowButton] = useState(false);
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 300) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-    });
-  }, []);
-
-  // This function will scroll the window to the top 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // for smoothly scrolling
-    });
-  };
+function Home() {
+   
 
   var settings = {
     dots: false,
@@ -65,20 +47,17 @@ function LandingPage() {
     return (
         <>
 
-            {showButton && (
-                <button onClick={scrollToTop} className="btn btn-dark back-to-top">
-                &#8673;
-                </button>
-            )}
-            <div className="landing container mt-5">
+           <BackToTop/>
+            
+            <div className="landing container mt-sm-5">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 order-2 order-sm-1 mt-3 mt-sm-0">
                         <div className="col-12">
                             <img src="images/image6.jpg" width="100%" alt="" />
                         </div>
                     </div>
-                    <div className="col-md-6">
-                        <div className="col-12 mt-5">
+                    <div className="col-md-6 order-1 order-sm-2 mt-3 mt-sm-0">
+                        <div className="col-12 mt-sm-5">
                             <h5>The best for couples</h5>
                             <h1 className="display-3 mt-3">Plan and book your wedding</h1>
                             <button className="btn btn-outline-dark py-3 px-4 mt-3">Get Started</button>
@@ -147,11 +126,12 @@ function LandingPage() {
             </div>
 
             <div className="event-types">
+            <h2 className="text-center mb-5">Event Types</h2>
                 <Slider {...settings}>
                     <div className="col event">
                         <div className="overlay"></div>
                         <img src="images/iftar.jpg"  alt="" srcset="" />
-                        <div className="content text-center">
+                        <div className="content col-8 text-center">
                             <h3>Iftaar</h3>
                             <p>Indulge in our delicious Iftar buffets during the month of Ramadan, with ample spaces in our banquets and restaurant to host Iftar dinners.</p>
                         </div>
@@ -159,7 +139,7 @@ function LandingPage() {
                     <div className="col event">
                         <div className="overlay"></div>
                         <img src="images/family-events.jpg"  alt="" srcset="" />
-                        <div className="content text-center">
+                        <div className="content col-8 text-center">
                             <h3>Family Events</h3>
                             <p>Celebrate family milestones with an unforgettable experience in our venues, where you can choose your own personalized menu, setting, decor and group activites</p>
                         </div>
@@ -167,7 +147,7 @@ function LandingPage() {
                     <div className="col event">
                         <div className="overlay"></div>
                         <img src="images/Musical_Nights.jpg"  alt="" srcset="" />
-                        <div className="content text-center">
+                        <div className="content col-8 text-center">
                             <h3>Musical Nights</h3>
                             <p>Host musical nights in one of our spacious and grand banquets for a lively night of music, joy and laughter.</p>
                         </div>
@@ -175,9 +155,17 @@ function LandingPage() {
                     <div className="col event">
                         <div className="overlay"></div>
                         <img src="images/bday.jpg"  alt="" srcset="" />
-                        <div className="content text-center">
+                        <div className="content col-8 text-center">
                             <h3>Birthday Celebrations</h3>
                             <p>Celebrate your loved ones' birthdays in a magical outdoor or indoor setting.</p>                 
+                       </div>
+                    </div>
+                    <div className="col event">
+                        <div className="overlay"></div>
+                        <img src="images/coporate-meeting.jpg"  alt="" srcset="" />
+                        <div className="content col-8 text-center">
+                            <h3>Corporate Meetings</h3>
+                            <p>Corporate events are a time to bring people together. Whether it’s for networking or building up the company’s spirit, there is no better way to meet people than over some food and drinks. We have a large food selection and setup options that will cater to your company’s specific needs</p>                 
                        </div>
                     </div>
                     </Slider>
@@ -187,4 +175,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage
+export default Home
