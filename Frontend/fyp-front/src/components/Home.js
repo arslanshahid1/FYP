@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import React from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+
 
 function LandingPage() {
     // The back-to-top button is hidden at the beginning
   const [showButton, setShowButton] = useState(false);
-
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 300) {
@@ -21,8 +27,49 @@ function LandingPage() {
       behavior: 'smooth' // for smoothly scrolling
     });
   };
+
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+};
     return (
         <>
+
+            {showButton && (
+                <button onClick={scrollToTop} className="btn btn-dark back-to-top">
+                &#8673;
+                </button>
+            )}
             <div className="landing container mt-5">
                 <div className="row">
                     <div className="col-md-6">
@@ -40,11 +87,7 @@ function LandingPage() {
                 </div>
             </div>
 
-            {showButton && (
-        <button onClick={scrollToTop} className="btn btn-dark back-to-top">
-          &#8673;
-        </button>
-      )}
+           
 
             <div className="advantages container">
                 <div className="row">
@@ -102,6 +145,44 @@ function LandingPage() {
                     </div>
                 </div>
             </div>
+
+            <div className="event-types">
+                <Slider {...settings}>
+                    <div className="col event">
+                        <div className="overlay"></div>
+                        <img src="images/iftar.jpg"  alt="" srcset="" />
+                        <div className="content text-center">
+                            <h3>Iftaar</h3>
+                            <p>Indulge in our delicious Iftar buffets during the month of Ramadan, with ample spaces in our banquets and restaurant to host Iftar dinners.</p>
+                        </div>
+                    </div>
+                    <div className="col event">
+                        <div className="overlay"></div>
+                        <img src="images/family-events.jpg"  alt="" srcset="" />
+                        <div className="content text-center">
+                            <h3>Family Events</h3>
+                            <p>Celebrate family milestones with an unforgettable experience in our venues, where you can choose your own personalized menu, setting, decor and group activites</p>
+                        </div>
+                    </div>
+                    <div className="col event">
+                        <div className="overlay"></div>
+                        <img src="images/Musical_Nights.jpg"  alt="" srcset="" />
+                        <div className="content text-center">
+                            <h3>Musical Nights</h3>
+                            <p>Host musical nights in one of our spacious and grand banquets for a lively night of music, joy and laughter.</p>
+                        </div>
+                    </div>
+                    <div className="col event">
+                        <div className="overlay"></div>
+                        <img src="images/bday.jpg"  alt="" srcset="" />
+                        <div className="content text-center">
+                            <h3>Birthday Celebrations</h3>
+                            <p>Celebrate your loved ones' birthdays in a magical outdoor or indoor setting.</p>                 
+                       </div>
+                    </div>
+                    </Slider>
+            </div>
+                   
         </>
     )
 }

@@ -6,7 +6,7 @@
 :root {
     --dark-grey: #262626;
     --light-grey: #545454;
-    --green: #e9edc9;
+    --green: #CCEABB;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #ececec;
+    background-color: #CCEABB;
     z-index: 100;
 }
 
@@ -80,7 +80,7 @@ body {
 }
 
 .services .service:hover {
-    background-color: #ececec;
+    background-color: #CCEABB;
 }
 
 footer {
@@ -117,4 +117,61 @@ footer a.email {
 
 .back-to-top:hover {
     background: var(--green);
+    color: var(--dark-grey);
+}
+
+.event-types .event {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #CCEABB;
+}
+
+.event-types .event .overlay:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+}
+
+.event-types .event:hover .overlay:before {
+    background-color: hsla(98, 53%, 83%, 0.8);
+}
+
+.event-types .event:hover .content {
+    color: var(--dark-grey);
+}
+
+.event-types .event img {
+    width: 100%;
+}
+
+.event-types .event .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.slick-prev {
+    left: 3% !important;
+    z-index: 1;
+}
+
+.slick-next {
+    right: 3% !important;
+    z-index: 1;
+}
+
+.slick-next::before {
+    font-size: 30px !important;
+}
+
+.slick-prev::before {
+    font-size: 30px !important;
 }
