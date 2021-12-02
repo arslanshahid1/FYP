@@ -35,6 +35,83 @@ function Menu() {
                 </div>
             </div>
 
+            <div className="menu-gallery">
+                <h2 className="text-center mb-0 mt-5 diamond"><img src="images/diamond.svg" width="20px" alt="" srcset="" /></h2>
+                <h1 className="text-center mb-5 display-4">Menu Gallery</h1>
+
+                <div className="row">
+                    <div className="col-sm-6 col-md-3 mt-3 mt-md-0" data-toggle="modal" data-target="#exampleModal">
+                        <div className="menu1 col-12 px-0">
+                            <div className="overlay"></div>
+                            <img src="/images/entrees.webp" width="100%" alt="" />
+                            <div className="content">
+                                <h2>Entrees</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 col-md-3 mt-3 mt-md-0" data-toggle="modal" data-target="#exampleModal">
+                        <div className="menu1 col-12 px-0">
+                            <div className="overlay"></div>
+                            <img src="/images/starters.webp" width="100%" alt="" />
+                            <div className="content">
+                                <h2>Starters</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 col-md-3 mt-3 mt-md-0" data-toggle="modal" data-target="#exampleModal">
+                        <div className="menu1 col-12 px-0">
+                            <div className="overlay"></div>
+                            <img src="/images/salads.webp" width="100%" alt="" />
+                            <div className="content">
+                                <h2>Salads</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-6 col-md-3 mt-3 mt-md-0" data-toggle="modal" data-target="#exampleModal">
+                        <div className="menu1 col-12 px-0">
+                            <div className="overlay"></div>
+                            <img src="/images/desserts.webp" width="100%" alt="" />
+                            <div className="content">
+                                <h2>Desserts</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+   
+<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog modal-dialog-centered">
+    <div className="modal-content">
+      
+      <div className="modal-body">
+      <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src="images/entree1.jpg" className="d-block w-100" alt="..."/>
+    </div>
+    <div className="carousel-item">
+      <img src="images/entree2.jpg" className="d-block w-100" alt="..."/>
+    </div>
+    <div className="carousel-item">
+      <img src="images/entree3.jpg" className="d-block w-100" alt="..."/>
+    </div>
+  </div>
+ <button className="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+<span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="sr-only">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="sr-only">Next</span>
+  </button>
+</div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
 
             <BackToTop/>
         </div>
