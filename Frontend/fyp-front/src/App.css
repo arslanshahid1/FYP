@@ -42,6 +42,9 @@ body {
     text-decoration: underline;
 }
 
+
+/* =============================== Home Page ======================================= */
+
 .landing h1 {
     font-family: 'Nanum Myeongjo', serif;
 }
@@ -166,6 +169,9 @@ body {
     font-size: 30px !important;
 }
 
+
+/* ===================================== About Page =============================== */
+
 .about h1 {
     text-decoration: underline;
     text-underline-offset: 20px;
@@ -184,6 +190,9 @@ body {
 .values img {
     filter: hue-rotate(40deg);
 }
+
+
+/* ================================= Menu page ====================================== */
 
 .menu h1 {
     text-decoration: underline;
@@ -279,6 +288,33 @@ body {
     }
 }
 
+
+/* ========================================Packages==================================== */
+
+.packages h1 {
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    text-decoration-color: var(--green);
+    text-decoration-thickness: 2px;
+}
+
+.packages .diamond img {
+    filter: hue-rotate(50deg);
+}
+
+.packages .wm-proposal {
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.packages .wm-proposal:hover {
+    background-color: var(--green);
+}
+
+
+/* ======================================= Footer ================================= */
+
 footer {
     margin-top: 100px;
     width: 100%;
@@ -304,6 +340,9 @@ footer a.email {
         font-size: 40px;
     }
 }
+
+
+/* ============================= Back to top button ==================================== */
 
 .back-to-top {
     position: fixed;
