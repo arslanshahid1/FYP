@@ -312,6 +312,74 @@ body {
     background-color: var(--green);
 }
 
+.packages .dessert {
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.packages .dessert:hover {
+    background-color: var(--green);
+}
+
+
+/* ======================================= Contact Us ============================= */
+
+.contact h1 {
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    text-decoration-color: var(--green);
+    text-decoration-thickness: 2px;
+}
+
+.contact .diamond img {
+    filter: hue-rotate(50deg);
+}
+
+.contact p {
+    font-size: 18px;
+}
+
+.contact form label {
+    font-weight: bold;
+}
+
+.contact form button {
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.contact iframe {
+    border: none;
+}
+
+
+/* ====================================== Booking ======================================= */
+
+.booking h1 {
+    text-decoration: underline;
+    text-underline-offset: 20px;
+    text-decoration-color: var(--green);
+    text-decoration-thickness: 2px;
+}
+
+.booking .diamond img {
+    filter: hue-rotate(50deg);
+}
+
+.booking form label {
+    font-weight: bold;
+}
+
+.booking form button {
+    background-color: var(--green);
+    color: var(--dark-grey);
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+}
+
 
 /* ======================================= Footer ================================= */
 

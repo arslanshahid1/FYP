@@ -6,7 +6,8 @@ import About from './components/About'
 import Menu from './components/Menu'
 import Footer from './components/Footer'
 import Packages from './components/Packages'
-
+import Contact from './components/Contact'
+import Booking from './components/Booking'
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,8 +27,8 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/menu" element={<Menu/>}/>
           <Route path="/packages" element={<Packages/>}/>
-         
-         
+          <Route path="/contact" element={<Contact/>}/>        
+          <Route path="/booking" element={<Booking/>}/>        
         </Routes>
         <Footer/>
     </div>
