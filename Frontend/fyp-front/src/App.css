@@ -40,6 +40,7 @@ body {
 
 .navbar .nav-item:hover {
     text-decoration: underline;
+    text-underline-offset: 8px;
 }
 
 
@@ -429,4 +430,99 @@ footer a.email {
 .back-to-top:hover {
     background: var(--green);
     color: var(--dark-grey);
+}
+
+
+/* ==================================== Login =================================== */
+
+.signin-left h2 {
+    font-weight: 700;
+}
+
+.signin-right a.fa,
+.signin-right a.fa {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: none;
+    border: 1px solid var(--light-grey);
+    border-radius: 50%;
+    text-align: center;
+    color: var(--light-grey);
+    text-decoration: none;
+}
+
+.signin-right a.fa:hover,
+.signin-right a.fa:hover {
+    background: var(--light-grey);
+    border: 1px solid var(--dark-grey);
+    color: white;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.signin-right input {
+    background-color: rgba(255, 255, 255);
+    border: 1px solid rgb(199, 199, 199);
+    padding: 20px 10px;
+}
+
+.signin-right button {
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    border-radius: 8px;
+    background: var(--green);
+    border: 1px solid var(--green);
+    color: var(--dark-grey);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    outline: none;
+}
+
+.signin-right button:hover {
+    background: #b7d4a8;
+    color: var(--dark-grey);
+    border: 1px solid var(--dark-grey);
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+    outline: none;
+}
+
+.signin-right label {
+    font-weight: 500;
+}
+
+.signin-right h2 {
+    color: var(--dark-grey);
+    font-weight: 700;
+}
+
+.signin-right p {
+    color: var(--light-grey);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.signin-right .fyp {
+    display: block;
+    color: var(--green);
+    text-decoration: underline;
+    text-underline-position: under;
+    font-weight: 500;
+}
+
+.signin-right .fyp:hover {
+    color: #5a6453;
+}
+
+.signin-right input {
+    font-family: FontAwesome, 'Montserrat';
+    background-color: rgba(235, 235, 235, 0.4);
+    border: none;
+}
+
+.signin-right input::placeholder {
+    color: rgb(185, 185, 185);
 }
