@@ -64,14 +64,19 @@ function Home() {
             <div className='col-12 mt-sm-5'>
               <h5>The best for couples</h5>
               <h1 className='display-3 mt-3'>Plan and book your wedding</h1>
-              <button className='btn btn-outline-dark py-3 px-4 mt-3'>Get Started</button>
+              <button
+                className='btn btn-outline-dark py-3 px-4 mt-3'
+                onClick={() => window.scrollTo(0, 600)}
+              >
+                Get Started
+              </button>
             </div>
           </div>
         </div>
       </div>
 
       <div className='advantages container' data-aos='fade-up'>
-        <div className='row'>
+        <div className='row mt-5'>
           <div className='col-md-6'>
             <div className='col-12'>
               <h5>Why Us</h5>

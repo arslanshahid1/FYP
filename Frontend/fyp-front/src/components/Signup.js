@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  const register = () => {
+    const { name, email, password } = user;
+    if (name && email && password) {
+      axios.post('http://localhost:5000/register', user).then((res) => {
+        alert(res.data.message);
+        if (res.data.message !== 'User already registered. Please choose different email')
+          navigate('/login');
+      });
+    } else {
+      alert('Please fill all inputs');
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+
   return (
     <div className='signin mt-5 container'>
       <div className='row d-flex align-items-center'>
@@ -15,8 +46,8 @@ function Signup() {
                 <h2>Create Account!</h2>
               </div>
               <div className='col-6 text-right'>
-                <a href='#' class='fa fa-facebook mr-2' aria-hidden='true'></a>
-                <a href='#' class='fa fa-google' aria-hidden='true'></a>
+                <a href='##' class='fa fa-facebook mr-2' aria-hidden='true'></a>
+                <a href='##' class='fa fa-google' aria-hidden='true'></a>
               </div>
             </div>
             <form action='#'>
@@ -26,6 +57,9 @@ function Signup() {
                   class='form-control p-4'
                   id='staticEmail2'
                   placeholder='&#xF007; Name'
+                  name='name'
+                  value={user.name}
+                  onChange={handleChange}
                 />
               </div>
               <div class='form-group mb-2'>
@@ -34,6 +68,9 @@ function Signup() {
                   class='form-control p-4'
                   id='staticEmail2'
                   placeholder='&#xf0e0; Email'
+                  name='email'
+                  value={user.email}
+                  onChange={handleChange}
                 />
               </div>
               <div class='form-group mb-2'>
@@ -42,10 +79,13 @@ function Signup() {
                   class='form-control p-4'
                   id='staticEmail2'
                   placeholder='&#xf023; Password'
+                  name='password'
+                  value={user.password}
+                  onChange={handleChange}
                 />
               </div>
             </form>
-            <button type='submit' class='btn btn-primary my-3'>
+            <button type='submit' class='btn btn-primary my-3' onClick={register}>
               Sign Up
             </button>
           </div>

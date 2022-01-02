@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({ setLoginUser }) {
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+
+  const login = (e) => {
+    if (user.email === '' || user.password === '') {
+      e.preventDefault();
+      alert('Please enter your credentials');
+    } else {
+      axios
+        .post('http://localhost:5000/login', user)
+        .then((res) => {
+          alert(res.data.message);
+          setLoginUser(res.data.user);
+          //console.log(res);
+          navigate('/');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   return (
     <div className='signin mt-5 container'>
       <div className='row d-flex align-items-center'>
@@ -24,19 +60,25 @@ function Login() {
                 <input
                   type='email'
                   class='form-control p-4'
-                  id='staticEmail2'
+                  id='email'
                   placeholder='&#xf0e0; Email'
+                  name='email'
+                  value={user.email}
+                  onChange={handleChange}
                 />
               </div>
               <div class='form-group mb-2'>
                 <input
                   type='password'
                   class='form-control p-4'
-                  id='staticEmail2'
+                  id='password'
                   placeholder='&#xf023; Password'
+                  name='password'
+                  value={user.password}
+                  onChange={handleChange}
                 />
               </div>
-              <button type='submit' class='btn btn-primary my-3'>
+              <button type='submit' class='btn btn-primary my-3' onClick={login}>
                 Sign in
               </button>
               <div className='row my-3'>
@@ -49,7 +91,7 @@ function Login() {
                   </div>
                 </div>
                 <div className='col-6 text-right'>
-                  <a href=''>Forgot Password</a>
+                  <a href='##'>Forgot Password</a>
                 </div>
               </div>
             </form>
