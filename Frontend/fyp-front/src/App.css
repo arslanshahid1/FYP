@@ -439,6 +439,20 @@ footer a.email {
     font-weight: 700;
 }
 
+.signin-right .form-group {
+    position: relative;
+}
+
+.signin-right .form-group .validation {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translate(5rem, -50%);
+    color: red;
+    transition: all 0.35s;
+    opacity: 0;
+}
+
 .signin-right a.fa,
 .signin-right a.fa {
     width: 40px;
@@ -481,13 +495,33 @@ footer a.email {
     outline: none;
 }
 
+.signin-right button:active,
+.signin-right button:focus {
+    background: var(--green);
+    color: var(--dark-grey);
+    box-shadow: none;
+    border: 1px solid #85a873;
+}
+
+.signin-right button[disabled] {
+    background-color: #adadad;
+    border: none;
+    color: var(--dark-grey);
+}
+
 .signin-right button:hover {
     background: #b7d4a8;
     color: var(--dark-grey);
-    border: 1px solid var(--dark-grey);
+    border: 1px solid #85a873;
     cursor: pointer;
     transition: ease-in-out 0.2s;
     outline: none;
+}
+
+.signin-right button[disabled]:hover {
+    background-color: #adadad;
+    color: var(--dark-grey);
+    border: none;
 }
 
 .signin-right label {
@@ -520,7 +554,19 @@ footer a.email {
 .signin-right input {
     font-family: FontAwesome, 'Montserrat';
     background-color: rgba(235, 235, 235, 0.4);
-    border: none;
+}
+
+.signin-right input:focus {
+    box-shadow: none;
+}
+
+.signin-right input:valid {
+    border-color: #55d688 !important;
+}
+
+.signin-right input:invalid~.validation {
+    opacity: 1;
+    transform: translate(0, -50%);
 }
 
 .signin-right input::placeholder {

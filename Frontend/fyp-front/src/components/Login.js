@@ -2,41 +2,81 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../features/userSlice';
 
 function Login({ setLoginUser }) {
   const navigate = useNavigate();
 
-  const [user, setUser] = useState({
-    email: '',
-    password: '',
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
-  };
+  const dispatch = useDispatch();
 
-  const login = (e) => {
-    if (user.email === '' || user.password === '') {
-      e.preventDefault();
-      alert('Please enter your credentials');
-    } else {
-      axios
-        .post('http://localhost:5000/login', user)
-        .then((res) => {
+  function validateForm() {
+    return email.length > 0 && password.length > 0;
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const user = { email: email, password: password };
+
+    axios
+      .post('http://localhost:5000/login', user)
+      .then((res) => {
+        if (res.data.message === 'Login successful') {
           alert(res.data.message);
-          setLoginUser(res.data.user);
-          //console.log(res);
-          navigate('/');
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+          dispatch(
+            login({
+              email: email,
+              password: password,
+              loggedIn: true,
+            })
+          );
+          navigate('/booking');
+        } else if (res.data.message === 'Incorrect password') {
+          alert('Incorrect password');
+        } else {
+          alert('User does not exist');
+        }
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
+
+  // const [user, setUser] = useState({
+  //   email: '',
+  //   password: '',
+  // });
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setUser({
+  //     ...user,
+  //     [name]: value,
+  //   });
+  // };
+
+  // const login = (e) => {
+  //   e.preventDefault();
+  //   if (user.email === '' || user.password === '') {
+  //     // alert('Please enter your credentials');
+  //     return false;
+  //   } else {
+  //     axios
+  //       .post('http://localhost:5000/login', user)
+  //       .then((res) => {
+  //         alert(res.data.message);
+  //         setLoginUser(res.data.user);
+  //         //console.log(res);
+  //         navigate('/');
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // };
 
   return (
     <div className='signin mt-5 container'>
@@ -55,7 +95,7 @@ function Login({ setLoginUser }) {
                 <a href='#' class='fa fa-google' aria-hidden='true'></a>
               </div>
             </div>
-            <form>
+            <form onSubmit={(e) => handleSubmit(e)}>
               <div class='form-group mb-2'>
                 <input
                   type='email'
@@ -63,10 +103,14 @@ function Login({ setLoginUser }) {
                   id='email'
                   placeholder='&#xf0e0; Email'
                   name='email'
-                  value={user.email}
-                  onChange={handleChange}
+                  value={email}
+                  autoFocus
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
                 />
+                <div className='validation'>*Required</div>
               </div>
+
               <div class='form-group mb-2'>
                 <input
                   type='password'
@@ -74,11 +118,13 @@ function Login({ setLoginUser }) {
                   id='password'
                   placeholder='&#xf023; Password'
                   name='password'
-                  value={user.password}
-                  onChange={handleChange}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
+                <div className='validation'>*Required</div>
               </div>
-              <button type='submit' class='btn btn-primary my-3' onClick={login}>
+              <button type='submit' class='btn btn-primary my-3' disabled={!validateForm()}>
                 Sign in
               </button>
               <div className='row my-3'>

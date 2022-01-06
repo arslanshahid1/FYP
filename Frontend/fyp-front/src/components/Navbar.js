@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { logout, selectUser } from '../features/userSlice';
+import { useDispatch } from 'react-redux';
 
 function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -13,6 +17,10 @@ function Navbar() {
       setScrolled(false);
     }
   };
+  const handleLogout = (e) => {
+    dispatch(logout());
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
   });
@@ -69,9 +77,20 @@ function Navbar() {
               </li>
             </ul>
 
-            <Link to='/login' className='btn btn-outline-dark my-2 mr-2 my-sm-0 px-4 py-2'>
-              Login
-            </Link>
+            {user ? (
+              <Link
+                to='/'
+                className='btn btn-outline-dark my-2 mr-2 my-sm-0 px-4 py-2'
+                onClick={(e) => handleLogout(e)}
+              >
+                Logout
+              </Link>
+            ) : (
+              <Link to='/login' className='btn btn-outline-dark my-2 mr-2 my-sm-0 px-4 py-2'>
+                Login
+              </Link>
+            )}
+
             <Link to='/booking' className='btn btn-dark my-2 my-sm-0 px-4 py-2'>
               Book Now
             </Link>

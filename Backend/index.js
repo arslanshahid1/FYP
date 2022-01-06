@@ -29,7 +29,7 @@ app.post('/login', (req, res) => {
         res.send({ message: 'Incorrect password' });
       }
     } else {
-      res.send({ message: 'Üser does not exist' });
+      res.send({ message: 'User does not exist' });
     }
   });
 });

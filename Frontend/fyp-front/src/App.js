@@ -12,27 +12,29 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
 
 function App() {
-  const [user, setLoginUser] = useState({});
+  const user = useSelector(selectUser);
+
   return (
     <Router>
       <ScrollToTop />
       <Navbar />
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/menu' element={<Menu />} />
         <Route path='/packages' element={<Packages />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/booking' element={user ? <Booking /> : <Login />}></Route>
 
-        {/* {user._id && <Route path='/booking' element={<Booking setLoginUser={setLoginUser} />} />}
-        !user._id && <Route path='/booking' element={<Login setLoginUser={setLoginUser} />} /> */}
-
-        <Route path='/booking' element={<Booking />} />
-        <Route path='/login' element={<Login setLoginUser={setLoginUser} />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
       </Routes>
+
       <Footer />
     </Router>
   );
