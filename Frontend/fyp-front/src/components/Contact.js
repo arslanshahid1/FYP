@@ -14,18 +14,25 @@ function Contact() {
   return (
     <div className='contact container'>
       <h2 className='text-center mb-0 mt-5 diamond'>
-        <img src='images/diamond.svg' width='20px' alt='' srcset='' data-aos='fade-down' />
+        <img
+          src='images/diamond.svg'
+          width='20px'
+          alt=''
+          srcSet=''
+          data-aos='fade-down'
+        />
       </h2>
       <h1 className='text-center mb-5 display-4' data-aos='fade-down'>
         Reach out to us
       </h1>
 
       <p className='text-center ' data-aos='fade-up'>
-        Our friendly staff is happy to set up an appointment and answer any questions that you may
-        have. We can be reached by phone, text or email and will generally respond within 24 hours.
-        We know that this may be one of the most important days of a person’s life and want to make
-        sure every question you have is answered and everything is to your liking. We look forward
-        to speaking with you soon!
+        Our friendly staff is happy to set up an appointment and answer any
+        questions that you may have. We can be reached by phone, text or email
+        and will generally respond within 24 hours. We know that this may be one
+        of the most important days of a person’s life and want to make sure
+        every question you have is answered and everything is to your liking. We
+        look forward to speaking with you soon!
       </p>
 
       <div className='row mt-5' data-aos='fade-up'>

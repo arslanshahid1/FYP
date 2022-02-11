@@ -448,7 +448,7 @@ footer a.email {
     top: 50%;
     right: 0.5rem;
     transform: translate(5rem, -50%);
-    color: red;
+    color: rgb(165, 165, 165);
     transition: all 0.35s;
     opacity: 0;
 }

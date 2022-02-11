@@ -13,7 +13,7 @@ function Menu() {
   return (
     <div className='menu container'>
       <h2 className='text-center mb-0 mt-5 diamond' data-aos='fade-down'>
-        <img src='images/diamond.svg' width='20px' alt='' srcset='' />
+        <img src='images/diamond.svg' width='20px' alt='' srcSet='' />
       </h2>
       <h1 className='text-center mb-5 display-4' data-aos='fade-down'>
         Menu Styles
@@ -29,10 +29,11 @@ function Menu() {
         >
           <h4>Family style gatherings</h4>
           <p className='mt-3'>
-            Bringing family and friends together, family-style catering is quickly gaining
-            popularity amongst banquet hall clients. Your guests will be greeted with a one of a
-            kind appetizer and salad collection. Sharing the food helps guests become acquainted
-            with one another and sets a social mood.
+            Bringing family and friends together, family-style catering is
+            quickly gaining popularity amongst banquet hall clients. Your guests
+            will be greeted with a one of a kind appetizer and salad collection.
+            Sharing the food helps guests become acquainted with one another and
+            sets a social mood.
           </p>
         </div>
       </div>
@@ -46,9 +47,10 @@ function Menu() {
         >
           <h4>Table service</h4>
           <p className='mt-3'>
-            Bringing specific focus on every dish, the table service is the custom-tailored approach
-            to meet every person’s specific needs. Each plate is designed and cooked to perfection.
-            The wide variety of dishes offered by Aurora’s chefs can be combined together to create
+            Bringing specific focus on every dish, the table service is the
+            custom-tailored approach to meet every person’s specific needs. Each
+            plate is designed and cooked to perfection. The wide variety of
+            dishes offered by Aurora’s chefs can be combined together to create
             endless plate combinations.
           </p>
         </div>
@@ -63,19 +65,20 @@ function Menu() {
         >
           <h4>Buffet service</h4>
           <p className='mt-3'>
-            The easiest and most cost-effective approach to hosting hundreds of guests. Our buffet
-            is like no other. The food we serve is always the same quality, but the serving method
-            changes. Due to the ease of serving a Buffet-Style menu, we are able to offer the same
-            quality food as our other catering styles, but at a lower cost. Our buffet style is
-            popular for all event types ranging from weddings to corporate events, making it the
-            most convenient option.
+            The easiest and most cost-effective approach to hosting hundreds of
+            guests. Our buffet is like no other. The food we serve is always the
+            same quality, but the serving method changes. Due to the ease of
+            serving a Buffet-Style menu, we are able to offer the same quality
+            food as our other catering styles, but at a lower cost. Our buffet
+            style is popular for all event types ranging from weddings to
+            corporate events, making it the most convenient option.
           </p>
         </div>
       </div>
 
       <div className='menu-gallery' data-aos='fade-up'>
         <h2 className='text-center mb-0 mt-5 diamond'>
-          <img src='images/diamond.svg' width='20px' alt='' srcset='' />
+          <img src='images/diamond.svg' width='20px' alt='' srcSet='' />
         </h2>
         <h1 className='text-center mb-5 display-4'>Menu Gallery</h1>
 
@@ -145,16 +148,32 @@ function Menu() {
         <div className='modal-dialog modal-dialog-centered'>
           <div className='modal-content'>
             <div className='modal-body'>
-              <div id='carouselExampleControls' className='carousel slide' data-ride='carousel'>
+              <div
+                id='carouselExampleControls'
+                className='carousel slide'
+                data-ride='carousel'
+              >
                 <div className='carousel-inner'>
                   <div className='carousel-item active'>
-                    <img src='images/entree1.jpg' className='d-block w-100' alt='...' />
+                    <img
+                      src='images/entree1.jpg'
+                      className='d-block w-100'
+                      alt='...'
+                    />
                   </div>
                   <div className='carousel-item'>
-                    <img src='images/entree2.jpg' className='d-block w-100' alt='...' />
+                    <img
+                      src='images/entree2.jpg'
+                      className='d-block w-100'
+                      alt='...'
+                    />
                   </div>
                   <div className='carousel-item'>
-                    <img src='images/entree3.jpg' className='d-block w-100' alt='...' />
+                    <img
+                      src='images/entree3.jpg'
+                      className='d-block w-100'
+                      alt='...'
+                    />
                   </div>
                 </div>
                 <button
@@ -163,7 +182,10 @@ function Menu() {
                   data-target='#carouselExampleControls'
                   data-slide='prev'
                 >
-                  <span className='carousel-control-prev-icon' aria-hidden='true'></span>
+                  <span
+                    className='carousel-control-prev-icon'
+                    aria-hidden='true'
+                  ></span>
                   <span className='sr-only'>Previous</span>
                 </button>
                 <button
@@ -172,7 +194,10 @@ function Menu() {
                   data-target='#carouselExampleControls'
                   data-slide='next'
                 >
-                  <span className='carousel-control-next-icon' aria-hidden='true'></span>
+                  <span
+                    className='carousel-control-next-icon'
+                    aria-hidden='true'
+                  ></span>
                   <span className='sr-only'>Next</span>
                 </button>
               </div>

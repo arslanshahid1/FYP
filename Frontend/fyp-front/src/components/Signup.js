@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Signup() {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ function Signup() {
 
   return (
     <div className='signin mt-5 container'>
+      <ToastContainer autoClose={5000} />
       <div className='row d-flex align-items-center'>
         <div className='col-sm-6 order-1  d-none d-sm-flex align-items-center'>
           <img src='/images/image5.jpg' width='100%' alt='' />
@@ -60,7 +62,10 @@ function Signup() {
                   name='name'
                   value={user.name}
                   onChange={handleChange}
+                  required
+                  autoFocus
                 />
+                <div className='validation'>*Required</div>
               </div>
               <div class='form-group mb-2'>
                 <input
@@ -71,7 +76,9 @@ function Signup() {
                   name='email'
                   value={user.email}
                   onChange={handleChange}
+                  required
                 />
+                <div className='validation'>*Required</div>
               </div>
               <div class='form-group mb-2'>
                 <input
@@ -82,7 +89,9 @@ function Signup() {
                   name='password'
                   value={user.password}
                   onChange={handleChange}
+                  required
                 />
+                <div className='validation'>*Required</div>
               </div>
             </form>
             <button type='submit' class='btn btn-primary my-3' onClick={register}>

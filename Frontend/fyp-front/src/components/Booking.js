@@ -43,13 +43,16 @@ function Booking() {
       eventTime: eventTime,
     };
 
-    fetch('https://fyp-booking-form-default-rtdb.firebaseio.com/bookings.json', {
-      method: 'POST',
-      body: JSON.stringify(bookingdata),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(() => {
+    fetch(
+      'https://fyp-booking-form-default-rtdb.firebaseio.com/bookings.json',
+      {
+        method: 'POST',
+        body: JSON.stringify(bookingdata),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    ).then(() => {
       navigate('/');
     });
   }
@@ -57,7 +60,7 @@ function Booking() {
   return (
     <div className='booking container'>
       <h2 className='text-center mb-0 mt-5 diamond'>
-        <img src='images/diamond.svg' width='20px' alt='' srcset='' />
+        <img src='images/diamond.svg' width='20px' alt='' srcSet='' />
       </h2>
       <h1 className='text-center mb-5 display-4'>Book an event now!</h1>
 
@@ -65,11 +68,23 @@ function Booking() {
         <div className='form-row'>
           <div className='form-group col-md-6'>
             <label for='fname'>First Name</label>
-            <input type='text' className='form-control' id='fname' ref={fnameRef} required />
+            <input
+              type='text'
+              className='form-control'
+              id='fname'
+              ref={fnameRef}
+              required
+            />
           </div>
           <div className='form-group col-md-6'>
             <label for='lname'>Last Name</label>
-            <input type='text' className='form-control' id='lname' ref={lnameRef} required />
+            <input
+              type='text'
+              className='form-control'
+              id='lname'
+              ref={lnameRef}
+              required
+            />
           </div>
         </div>
         <div className='form-row mt-md-3'>
@@ -116,7 +131,13 @@ function Booking() {
           </div>
           <div className='form-group col-md-4'>
             <label for='people'>Number of guests</label>
-            <input type='number' className='form-control' id='guests' ref={guestsRef} required />
+            <input
+              type='number'
+              className='form-control'
+              id='guests'
+              ref={guestsRef}
+              required
+            />
           </div>
         </div>
         <div className='form-row mt-md-3'>
@@ -139,7 +160,13 @@ function Booking() {
           </div>
           <div className='form-group col-md-4'>
             <label for='date'>Event date</label>
-            <input type='date' className='form-control' id='date' ref={eventDateRef} required />
+            <input
+              type='date'
+              className='form-control'
+              id='date'
+              ref={eventDateRef}
+              required
+            />
           </div>
           <div className='form-group col-md-4'>
             <label for='package'>Time Slot</label>
