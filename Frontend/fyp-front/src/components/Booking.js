@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BackToTop from './BackToTop';
+import axios from 'axios';
 
 function Booking() {
   const navigate = useNavigate();
@@ -43,16 +44,8 @@ function Booking() {
       eventTime: eventTime,
     };
 
-    fetch(
-      'https://fyp-booking-form-default-rtdb.firebaseio.com/bookings.json',
-      {
-        method: 'POST',
-        body: JSON.stringify(bookingdata),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    ).then(() => {
+    axios.post('http://localhost:4000/api/bookings', bookingdata).then(() => {
+      alert('Booking done successfuly');
       navigate('/');
     });
   }

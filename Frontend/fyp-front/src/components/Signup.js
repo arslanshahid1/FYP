@@ -16,11 +16,16 @@ function Signup() {
   const register = () => {
     const { name, email, password } = user;
     if (name && email && password) {
-      axios.post('http://localhost:5000/register', user).then((res) => {
-        alert(res.data.message);
-        if (res.data.message !== 'User already registered. Please choose different email')
-          navigate('/login');
-      });
+      axios
+        .post('http://localhost:4000/api/users/register', user)
+        .then((res) => {
+          if (res.data.message === 'User with given email already exists.')
+            alert(res.data.message);
+          else {
+            alert('Registered successfully');
+            navigate('/login');
+          }
+        });
     } else {
       alert('Please fill all inputs');
     }
@@ -94,7 +99,11 @@ function Signup() {
                 <div className='validation'>*Required</div>
               </div>
             </form>
-            <button type='submit' class='btn btn-primary my-3' onClick={register}>
+            <button
+              type='submit'
+              class='btn btn-primary my-3'
+              onClick={register}
+            >
               Sign Up
             </button>
           </div>

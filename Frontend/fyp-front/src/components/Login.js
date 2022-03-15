@@ -23,31 +23,24 @@ function Login({ setLoginUser }) {
 
     const user = { email: email, password: password };
 
-    axios
-      .post('http://localhost:5000/login', user)
-      .then((res) => {
-        if (res.data.message === 'Login successful') {
-          localStorage.setItem('user', JSON.stringify(user));
-          dispatch(
-            login({
-              email: email,
-              password: password,
-              loggedIn: true,
-            })
-          );
-          alert(res.data.message);
-          // setEmail('');
-          // setPassword('');
-          navigate('/booking');
-        } else if (res.data.message === 'Incorrect password') {
-          alert('Incorrect password');
-        } else {
-          alert('User does not exist');
-        }
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    axios.post('http://localhost:4000/api/users/login', user).then((res) => {
+      if (res.data.message === 'User does not exist.') {
+        alert('User does not exist');
+      } else if (res.data.message === 'Invalid password.') {
+        alert('Incorrect password');
+      } else {
+        dispatch(
+          login({
+            email: email,
+            password: password,
+            loggedIn: true,
+          })
+        );
+        // setEmail('');
+        // setPassword('');
+        navigate('/booking');
+      }
+    });
   };
 
   return (

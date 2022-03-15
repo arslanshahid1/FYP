@@ -78,15 +78,35 @@ function Navbar() {
             </ul>
 
             {user ? (
-              <Link
-                to='/'
-                className='btn btn-outline-dark my-2 mr-2 my-sm-0 px-4 py-2'
-                onClick={(e) => handleLogout(e)}
-              >
-                Logout
-              </Link>
+              <div className='nav-item dropdown'>
+                <a
+                  className='nav-link dropdown-toggle'
+                  href='#'
+                  id='navbarDropdown'
+                  role='button'
+                  data-toggle='dropdown'
+                  aria-expanded='false'
+                >
+                  Profile
+                </a>
+                <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
+                  <Link className='dropdown-item' to='/profile'>
+                    Your Profile
+                  </Link>
+                  <Link
+                    className='dropdown-item'
+                    to='/'
+                    onClick={(e) => handleLogout(e)}
+                  >
+                    Logout
+                  </Link>
+                </div>
+              </div>
             ) : (
-              <Link to='/login' className='btn btn-outline-dark my-2 mr-2 my-sm-0 px-4 py-2'>
+              <Link
+                to='/login'
+                className='btn btn-outline-dark my-2 mr-2 my-sm-0 px-4 py-2'
+              >
                 Login
               </Link>
             )}

@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
+import Admin from './components/Admin';
 
 function App() {
   const user = useSelector(selectUser);
@@ -34,6 +35,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/admin' element={<Admin />} />
         <Route path='/about' element={<About />} />
         <Route path='/menu' element={<Menu />} />
         <Route path='/packages' element={<Packages />} />
