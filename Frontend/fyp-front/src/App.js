@@ -10,11 +10,19 @@ import Contact from './components/Contact';
 import Booking from './components/Booking';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Redirect,
+  Navigate,
+} from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 import Admin from './components/Admin';
+import SingleBookingDetails from './components/SingleBookingDetails';
+import NotFound from './components/NotFound';
 
 function App() {
   const user = useSelector(selectUser);
@@ -35,15 +43,19 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/admin' element={<Admin />} />
+        <Route path='/admin' element={user ? <Admin /> : <Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/menu' element={<Menu />} />
         <Route path='/packages' element={<Packages />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/booking' element={user ? <Booking /> : <Login />}></Route>
-
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+        <Route
+          path='/singlebookingdetails'
+          element={<SingleBookingDetails />}
+        />
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
       <Footer />
