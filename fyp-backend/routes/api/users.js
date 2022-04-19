@@ -37,7 +37,8 @@ router.post('/login', async (req, res) => {
         { _id: user._id, name: user.name },
         config.get('jwtPrivateKey')
       );
-      res.send(token);
+      let id = user.id;
+      res.send({ token, id });
     }
   } else {
     res.send({ message: 'User does not exist.' }).status(400);

@@ -11,6 +11,7 @@ var bookingSchema = mongoose.Schema({
   package: String,
   date: String,
   time: String,
+  userId: String,
 });
 
 var Booking = mongoose.model('Booking', bookingSchema);

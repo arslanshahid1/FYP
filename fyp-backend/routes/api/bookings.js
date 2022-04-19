@@ -16,11 +16,14 @@ router.get('/', async (req, res) => {
 //get single booking
 router.get('/:id', async (req, res) => {
   try {
-    let booking = await Bookings.findById(req.params.id);
+    let booking = await Bookings.find({ id: req.params.id });
+
     if (!booking)
       return res.status(400).send('Booking with given id does not exist');
-    return res.send(booking);
+
+    return res.json(booking);
   } catch (error) {
+    console.log(error);
     return res.status(400).send('Invalid ID');
   }
 });
@@ -53,6 +56,7 @@ router.post('/', async (req, res) => {
     package,
     date,
     time,
+    userId,
   } = req.body;
   let booking = new Bookings();
   booking.fname = fname;
@@ -65,6 +69,8 @@ router.post('/', async (req, res) => {
   booking.package = package;
   booking.date = date;
   booking.time = time;
+  booking.userId = userId;
+  console.log(booking);
   await booking.save();
   return res.send(booking);
 });

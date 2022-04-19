@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function Booking() {
   const navigate = useNavigate();
+  let userId = localStorage.getItem('id');
 
   const fnameRef = useRef();
   const lnameRef = useRef();
@@ -42,6 +43,7 @@ function Booking() {
       packageInput: packageInput,
       eventDate: eventDate,
       eventTime: eventTime,
+      userId: userId,
     };
 
     axios.post('http://localhost:4000/api/bookings', bookingdata).then(() => {

@@ -22,7 +22,7 @@ function Login({ setLoginUser }) {
     e.preventDefault();
 
     const user = { email: email, password: password };
-    if (email == 'admin@gmail.com' && password == 'admin') {
+    if (email === 'admin@gmail.com' && password === 'admin') {
       dispatch(
         login({
           email: email,
@@ -38,6 +38,9 @@ function Login({ setLoginUser }) {
         } else if (res.data.message === 'Invalid password.') {
           alert('Incorrect password');
         } else {
+          localStorage.setItem('user', JSON.stringify(user));
+          console.log(res.data.id);
+          localStorage.setItem('id', res.data.id);
           dispatch(
             login({
               email: email,
