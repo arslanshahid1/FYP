@@ -9,9 +9,10 @@ var bookingSchema = mongoose.Schema({
   menuStyle: String,
   guests: Number,
   package: String,
-  date: String,
-  time: String,
+  eventDate: String,
+  eventTime: String,
   userId: String,
+  bookingStatus: Boolean,
 });
 
 var Booking = mongoose.model('Booking', bookingSchema);

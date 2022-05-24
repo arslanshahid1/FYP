@@ -43,6 +43,16 @@ body {
     text-underline-offset: 8px;
 }
 
+.navbar .dropdown-menu {
+    padding: 0;
+    margin: 10px;
+    margin-right: 0;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    padding: 10px;
+}
+
 
 /* =============================== Home Page ======================================= */
 

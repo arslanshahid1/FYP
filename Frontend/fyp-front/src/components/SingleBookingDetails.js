@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function SingleBookingDetails() {
   const saved = JSON.parse(localStorage.getItem('booking'));
   // const saved = localStorage.getItem('booking');
+  const [isConfirm, setConfirm] = useState(saved.bookingStatus);
+
+  const confirmClickHandler = () => {
+    axios.put(`http://localhost:4000/api/bookings/${saved._id}`).then(() => {
+      setConfirm(true);
+      alert('done');
+    });
+  };
 
   return (
     <div className='container mt-5'>
-      {/* {saved} */}
       <table class='table col-6 table-bordered'>
         <tbody>
           <tr>
@@ -35,11 +43,25 @@ function SingleBookingDetails() {
           </tr>
           <tr>
             <th scope='row'>Event Date</th>
-            <td>{saved.date}</td>
+            <td>{saved.eventDate}</td>
           </tr>
           <tr>
             <th scope='row'>Event Time</th>
-            <td>{saved.time}</td>
+            <td>{saved.eventTime}</td>
+          </tr>
+          <tr>
+            <th scope='row'>Booking status</th>
+            <td>{isConfirm ? 'Confirmed' : 'Pending'}</td>
+          </tr>
+          <tr>
+            <td colSpan={2}>
+              <button
+                className='btn btn-primary w-100'
+                onClick={confirmClickHandler}
+              >
+                Confirm Booking
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 //get single booking
 router.get('/:id', async (req, res) => {
   try {
-    let booking = await Bookings.find({ id: req.params.id });
+    let booking = await Bookings.find({ userId: req.params.id });
 
     if (!booking)
       return res.status(400).send('Booking with given id does not exist');
@@ -31,8 +31,8 @@ router.get('/:id', async (req, res) => {
 //update single booking
 router.put('/:id', async (req, res) => {
   let booking = await Bookings.findById(req.params.id);
-  booking.name = req.body.name;
-  booking.email = req.body.email;
+  booking.bookingStatus = true;
+  //booking.email = req.body.email;
   await booking.save();
   return res.send(booking);
 });
@@ -53,11 +53,15 @@ router.post('/', async (req, res) => {
     eventType,
     menuStyle,
     guests,
-    package,
-    date,
-    time,
+    packageName,
+    eventDate,
+    eventTime,
     userId,
+    bookingStatus,
   } = req.body;
+
+  console.log(eventTime);
+
   let booking = new Bookings();
   booking.fname = fname;
   booking.lname = lname;
@@ -66,11 +70,14 @@ router.post('/', async (req, res) => {
   booking.eventType = eventType;
   booking.menuStyle = menuStyle;
   booking.guests = guests;
-  booking.package = package;
-  booking.date = date;
-  booking.time = time;
+  booking.package = packageName;
+  booking.eventDate = eventDate;
+  booking.eventTime = eventTime;
   booking.userId = userId;
+  booking.bookingStatus = bookingStatus;
+
   console.log(booking);
+
   await booking.save();
   return res.send(booking);
 });

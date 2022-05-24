@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BackToTop from './BackToTop';
 import axios from 'axios';
@@ -6,7 +6,9 @@ import axios from 'axios';
 function Booking() {
   const navigate = useNavigate();
   let userId = localStorage.getItem('id');
+  let bookingStatus = false;
 
+  const [packageName, setpackageName] = useState();
   const fnameRef = useRef();
   const lnameRef = useRef();
   const emailRef = useRef();
@@ -40,10 +42,11 @@ function Booking() {
       eventType: eventType,
       menuStyle: menuStyle,
       guests: guests,
-      packageInput: packageInput,
+      packageName: packageInput,
       eventDate: eventDate,
       eventTime: eventTime,
       userId: userId,
+      bookingStatus: bookingStatus,
     };
 
     axios.post('http://localhost:4000/api/bookings', bookingdata).then(() => {
@@ -141,16 +144,24 @@ function Booking() {
               Select Package
               <small> (See details in packages section)</small>
             </label>
-            <select id='package' className='form-control' ref={packageRef}>
-              <option selected>WM-package1</option>
-              <option>WM-package2</option>
-              <option>WM-package3</option>
-              <option>WM-package4</option>
-              <option>WM-package5</option>
-              <option>WM-package6</option>
-              <option>CM-package1</option>
-              <option>CM-package2</option>
-              <option>CM-package3</option>
+            <select
+              id='package'
+              className='form-control'
+              ref={packageRef}
+              value={packageName}
+              onChange={(e) => setpackageName(e.target.value)}
+            >
+              <option selected value='WM-package1'>
+                WM-package1
+              </option>
+              <option value='WM-package2'>WM-package2</option>
+              <option value='WM-package3'>WM-package3</option>
+              <option value='WM-package4'>WM-package4</option>
+              <option value='WM-package5'>WM-package5</option>
+              <option value='WM-package6'>WM-package6</option>
+              <option value='WM-package7'>CM-package1</option>
+              <option value='WM-package8'>CM-package2</option>
+              <option value='WM-package9'>CM-package3</option>
             </select>
           </div>
           <div className='form-group col-md-4'>
