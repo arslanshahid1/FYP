@@ -14,6 +14,13 @@ function Login({ setLoginUser }) {
 
   const dispatch = useDispatch();
 
+  const options = {
+    autoClose: 3000,
+    hideProgressBar: false,
+    position: toast.POSITION.TOP_RIGHT,
+    pauseOnHover: true,
+  };
+
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -34,9 +41,9 @@ function Login({ setLoginUser }) {
     } else {
       axios.post('http://localhost:4000/api/users/login', user).then((res) => {
         if (res.data.message === 'User does not exist.') {
-          alert('User does not exist');
+          toast.error('User does not exist', options);
         } else if (res.data.message === 'Invalid password.') {
-          alert('Incorrect password');
+          toast.error('Incorrect password', options);
         } else {
           localStorage.setItem('user', JSON.stringify(user));
           console.log(res.data.id);
@@ -48,6 +55,7 @@ function Login({ setLoginUser }) {
               loggedIn: true,
             })
           );
+
           navigate('/booking');
         }
       });

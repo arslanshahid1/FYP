@@ -9,7 +9,6 @@ function SingleBookingDetails() {
   const confirmClickHandler = () => {
     axios.put(`http://localhost:4000/api/bookings/${saved._id}`).then(() => {
       setConfirm(true);
-      alert('done');
     });
   };
 
@@ -51,12 +50,20 @@ function SingleBookingDetails() {
           </tr>
           <tr>
             <th scope='row'>Booking status</th>
-            <td>{isConfirm ? 'Confirmed' : 'Pending'}</td>
+            <td
+              style={
+                isConfirm
+                  ? { backgroundColor: '#CCEABB' }
+                  : { backgroundColor: '#ffa4a4' }
+              }
+            >
+              {isConfirm ? 'Confirmed' : 'Pending'}
+            </td>
           </tr>
           <tr>
             <td colSpan={2}>
               <button
-                className='btn btn-primary w-100'
+                className='btn btn-primary w-100 p-2'
                 onClick={confirmClickHandler}
               >
                 Confirm Booking

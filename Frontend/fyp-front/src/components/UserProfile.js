@@ -70,7 +70,15 @@ function UserProfile() {
                 </tr>
                 <tr>
                   <th scope='row'>Booking status</th>
-                  <td>{booking.bookingStatus ? 'Confirmed' : 'Pending'}</td>
+                  <td
+                    style={
+                      booking.bookingStatus
+                        ? { backgroundColor: '#CCEABB' }
+                        : { backgroundColor: '#ffa4a4' }
+                    }
+                  >
+                    {booking.bookingStatus ? 'Confirmed' : 'Pending'}
+                  </td>
                 </tr>
               </tbody>
             </table>

@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BackToTop from './BackToTop';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { packagesDetails, desserts, corporateMenu } from './packagesDetails';
 
 function Packages() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 1000,
       offset: 150,
     });
   }, []);
@@ -36,7 +39,12 @@ function Packages() {
                   <li>{dish}</li>
                 ))}
               </ul>
-              <button className='btn btn-dark'>Book Now</button>
+              <button
+                className='btn btn-dark'
+                onClick={() => navigate('/booking')}
+              >
+                Book Now
+              </button>
             </div>
           </div>
         ))}
@@ -83,7 +91,12 @@ function Packages() {
                   <li>{dish}</li>
                 ))}
               </ul>
-              <button className='btn btn-dark'>Book Now</button>
+              <button
+                className='btn btn-dark'
+                onClick={() => navigate('/booking')}
+              >
+                Book Now
+              </button>
             </div>
           </div>
         ))}

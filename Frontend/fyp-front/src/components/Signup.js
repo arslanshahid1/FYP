@@ -7,6 +7,20 @@ import 'react-toastify/dist/ReactToastify.css';
 function Signup() {
   const navigate = useNavigate();
 
+  const options = {
+    autoClose: 3000,
+    hideProgressBar: false,
+    position: toast.POSITION.TOP_RIGHT,
+    pauseOnHover: true,
+  };
+  const options1 = {
+    autoClose: 2000,
+    hideProgressBar: false,
+    position: toast.POSITION.TOP_RIGHT,
+    pauseOnHover: true,
+    onClose: () => navigate('/login'),
+  };
+
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -20,14 +34,13 @@ function Signup() {
         .post('http://localhost:4000/api/users/register', user)
         .then((res) => {
           if (res.data.message === 'User with given email already exists.')
-            alert(res.data.message);
+            toast.error(res.data.message, options);
           else {
-            alert('Registered successfully');
-            navigate('/login');
+            toast.success('Registered successfully', options1);
           }
         });
     } else {
-      alert('Please fill all inputs');
+      toast.error('Please fill all inputs', options);
     }
   };
 

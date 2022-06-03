@@ -25,7 +25,6 @@ function Admin() {
         <p>No bookings yet</p>
       ) : (
         <div className='row'>
-          {/* <div className='col-md-6'> */}
           <table class='table table-bordered'>
             <thead class='thead-dark'>
               <tr>

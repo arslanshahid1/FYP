@@ -44,7 +44,7 @@ function Home() {
 
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 1500,
       offset: 130,
     });
   }, []);
@@ -66,7 +66,7 @@ function Home() {
               <h1 className='display-3 mt-3'>Plan and book your wedding</h1>
               <button
                 className='btn btn-outline-dark py-3 px-4 mt-3'
-                onClick={() => window.scrollTo(0, 600)}
+                onClick={() => window.scrollTo(0, 750)}
               >
                 Get Started
               </button>

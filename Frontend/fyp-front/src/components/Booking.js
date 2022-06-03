@@ -3,12 +3,26 @@ import { useNavigate } from 'react-router-dom';
 import BackToTop from './BackToTop';
 import axios from 'axios';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Booking() {
   const navigate = useNavigate();
+  const options = {
+    autoClose: 5000,
+    type: toast.TYPE.SUCCESS,
+    hideProgressBar: false,
+    position: toast.POSITION.TOP_RIGHT,
+    pauseOnHover: true,
+    progress: 0.5,
+    onClose: () => navigate('/'),
+  };
+
   let userId = localStorage.getItem('id');
   let bookingStatus = false;
 
   const [packageName, setpackageName] = useState();
+
   const fnameRef = useRef();
   const lnameRef = useRef();
   const emailRef = useRef();
@@ -50,13 +64,14 @@ function Booking() {
     };
 
     axios.post('http://localhost:4000/api/bookings', bookingdata).then(() => {
-      alert('Booking done successfuly');
-      navigate('/');
+      toast('Thank you. Our admin will soon confirm your booking.', options);
     });
   }
 
   return (
     <div className='booking container'>
+      <ToastContainer />
+
       <h2 className='text-center mb-0 mt-5 diamond'>
         <img src='images/diamond.svg' width='20px' alt='' srcSet='' />
       </h2>

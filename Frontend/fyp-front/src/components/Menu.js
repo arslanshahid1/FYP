@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 function Menu() {
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 1000,
       offset: 150,
     });
   }, []);

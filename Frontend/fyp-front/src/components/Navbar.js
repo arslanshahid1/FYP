@@ -9,22 +9,23 @@ function Navbar() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);
+  // });
+
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 150) {
+    if (offset > 550) {
       setScrolled(true);
     } else {
       setScrolled(false);
     }
   };
+
   const handleLogout = (e) => {
     localStorage.removeItem('id');
     dispatch(logout());
   };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-  });
 
   let x = ['navbar'];
   if (scrolled) {

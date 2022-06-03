@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -321,6 +322,7 @@ body {
 
 .packages .wm-proposal:hover {
     background-color: var(--green);
+    cursor: default;
 }
 
 .packages .dessert {
@@ -331,6 +333,7 @@ body {
 
 .packages .dessert:hover {
     background-color: var(--green);
+    cursor: default;
 }
 
 
