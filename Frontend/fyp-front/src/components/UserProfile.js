@@ -1,11 +1,8 @@
 import axios from 'axios';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../features/userSlice';
 import { useEffect, useState } from 'react';
 
 function UserProfile() {
-  const user = useSelector(selectUser);
   const userID = localStorage.getItem('id');
   const [userData, setUserData] = useState([]);
   useEffect(() => {
@@ -13,12 +10,11 @@ function UserProfile() {
       let comingUserData = res.data;
       let arr = [];
       comingUserData.map((booking) => {
-        arr.push(booking);
+        return arr.push(booking);
       });
       setUserData([...arr]);
-      console.log(userData);
     });
-  }, []);
+  });
 
   return (
     <div className='container user-profile'>

@@ -37,6 +37,8 @@ function Booking() {
   function submitHandler(event) {
     event.preventDefault();
 
+    var datetime = new Date().toLocaleString();
+
     const fname = fnameRef.current.value;
     const lname = lnameRef.current.value;
     const email = emailRef.current.value;
@@ -47,6 +49,7 @@ function Booking() {
     const packageInput = packageRef.current.value;
     const eventDate = eventDateRef.current.value;
     const eventTime = eventTimeRef.current.value;
+    const bookingTime = datetime;
 
     const bookingdata = {
       fname: fname,
@@ -59,6 +62,7 @@ function Booking() {
       packageName: packageInput,
       eventDate: eventDate,
       eventTime: eventTime,
+      bookingTime: bookingTime,
       userId: userId,
       bookingStatus: bookingStatus,
     };
@@ -166,9 +170,7 @@ function Booking() {
               value={packageName}
               onChange={(e) => setpackageName(e.target.value)}
             >
-              <option selected value='WM-package1'>
-                WM-package1
-              </option>
+              <option value='WM-package1'>WM-package1</option>
               <option value='WM-package2'>WM-package2</option>
               <option value='WM-package3'>WM-package3</option>
               <option value='WM-package4'>WM-package4</option>
@@ -192,7 +194,7 @@ function Booking() {
           <div className='form-group col-md-4'>
             <label for='package'>Time Slot</label>
             <select id='timing' className='form-control' ref={eventTimeRef}>
-              <option selected>Afternoon (1pm - 4pm)</option>
+              <option>Afternoon (1pm - 4pm)</option>
               <option>Night (7pm - 10pm)</option>
             </select>
           </div>

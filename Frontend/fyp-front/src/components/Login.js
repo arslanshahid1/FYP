@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { login, selectUser } from '../features/userSlice';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { login } from '../features/userSlice';
+import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -46,7 +46,6 @@ function Login({ setLoginUser }) {
           toast.error('Incorrect password', options);
         } else {
           localStorage.setItem('user', JSON.stringify(user));
-          console.log(res.data.id);
           localStorage.setItem('id', res.data.id);
           dispatch(
             login({
@@ -116,7 +115,7 @@ function Login({ setLoginUser }) {
               >
                 Sign in
               </button>
-              <div className='row my-3'>
+              {/* <div className='row my-3'>
                 <div className='col-6'>
                   <div class='form-group form-check'>
                     <input
@@ -132,7 +131,7 @@ function Login({ setLoginUser }) {
                 <div className='col-6 text-right'>
                   <a href='##'>Forgot Password</a>
                 </div>
-              </div>
+              </div> */}
             </form>
             <p className='text-center'>
               Not a member? <Link to='/signup'>Signup</Link>

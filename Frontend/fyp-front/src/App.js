@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/Home';
@@ -21,15 +21,6 @@ import UserProfile from './components/UserProfile';
 
 function App() {
   const user = useSelector(selectUser);
-
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem('user');
-  //   if (loggedInUser) {
-  //     const foundUser = loggedInUser;
-  //     //setUser(foundUser);
-  //     alert(foundUser);
-  //   }
-  // }, []);
 
   return (
     <Router>

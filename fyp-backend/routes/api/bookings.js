@@ -56,6 +56,7 @@ router.post('/', async (req, res) => {
     packageName,
     eventDate,
     eventTime,
+    bookingTime,
     userId,
     bookingStatus,
   } = req.body;
@@ -73,6 +74,7 @@ router.post('/', async (req, res) => {
   booking.package = packageName;
   booking.eventDate = eventDate;
   booking.eventTime = eventTime;
+  booking.bookingTime = bookingTime;
   booking.userId = userId;
   booking.bookingStatus = bookingStatus;
 

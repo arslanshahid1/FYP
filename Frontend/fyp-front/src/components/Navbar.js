@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { logout, selectUser } from '../features/userSlice';
 import { useDispatch } from 'react-redux';
 
 function Navbar() {
-  const [scrolled, setScrolled] = React.useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
@@ -13,14 +13,14 @@ function Navbar() {
   //   window.addEventListener('scroll', handleScroll);
   // });
 
-  const handleScroll = () => {
-    const offset = window.scrollY;
-    if (offset > 550) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
+  // const handleScroll = () => {
+  //   const offset = window.scrollY;
+  //   if (offset > 550) {
+  //     setScrolled(true);
+  //   } else {
+  //     setScrolled(false);
+  //   }
+  // };
 
   const handleLogout = (e) => {
     localStorage.removeItem('id');
@@ -83,7 +83,7 @@ function Navbar() {
               <div className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
-                  href='#'
+                  href='##'
                   id='navbarDropdown'
                   role='button'
                   data-toggle='dropdown'

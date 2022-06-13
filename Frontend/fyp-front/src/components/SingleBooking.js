@@ -17,7 +17,7 @@ function SingleBooking({ booking, num }) {
         <td>{booking.fname}</td>
         <td>{booking.email}</td>
         <td>{booking.phone}</td>
-        <td>12-03-2022</td>
+        <td>{booking.bookingTime}</td>
         <td>
           <button className='btn btn-primary' onClick={seeDetails}>
             See Details

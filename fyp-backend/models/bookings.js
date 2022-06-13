@@ -11,6 +11,7 @@ var bookingSchema = mongoose.Schema({
   package: String,
   eventDate: String,
   eventTime: String,
+  bookingTime: String,
   userId: String,
   bookingStatus: Boolean,
 });
