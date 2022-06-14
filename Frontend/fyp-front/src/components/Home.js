@@ -53,7 +53,7 @@ function Home() {
     <>
       <BackToTop />
 
-      <div className='landing container mt-sm-5' data-aos='fade-down'>
+      <div className='landing  mt-sm-5 container px-0' data-aos='fade-down'>
         <div className='row'>
           <div className='col-md-6 order-2 order-sm-1 mt-3 mt-sm-0'>
             <div className='col-12'>
@@ -75,7 +75,7 @@ function Home() {
         </div>
       </div>
 
-      <div className='advantages container' data-aos='fade-up'>
+      <div className='advantages container px-0' data-aos='fade-up'>
         <div className='row mt-5'>
           <div className='col-md-6'>
             <div className='col-12'>
@@ -105,7 +105,7 @@ function Home() {
         </div>
       </div>
 
-      <div className='services container' data-aos='fade-up'>
+      <div className='services container px-0' data-aos='fade-up'>
         <h2 className='text-center'>Our Services</h2>
         <h6 className='text-center m-auto'>
           From spacious halls to expansive indoor and outdoor spaces, we are

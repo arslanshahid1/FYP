@@ -19,7 +19,7 @@ function SingleBooking({ booking, num }) {
         <td>{booking.phone}</td>
         <td>{booking.bookingTime}</td>
         <td>
-          <button className='btn btn-primary' onClick={seeDetails}>
+          <button className='btn btn-primary w-100' onClick={seeDetails}>
             See Details
           </button>
         </td>

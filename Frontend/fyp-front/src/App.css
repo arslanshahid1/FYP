@@ -16,7 +16,6 @@ body {
 }
 
 .navbar {
-    width: 100%;
     min-height: 5vh;
     transition: all .2s ease;
 }
@@ -584,4 +583,34 @@ footer a.email {
 
 .signin-right input::placeholder {
     color: rgb(185, 185, 185);
+}
+
+
+/* =================================== Admin panel ======================= */
+
+.admin-button a {
+    background-color: #55d688;
+    padding: 0px;
+    display: flex;
+    height: 30vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #545454;
+}
+
+.admin-button a:hover {
+    background-color: #27af5d;
+    color: white;
+    cursor: pointer;
+}
+
+.admin-bookings .title,
+.admin-messages .title {
+    color: #27af5d;
+    font-size: 45px;
 }

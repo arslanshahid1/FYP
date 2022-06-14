@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function SingleBookingDetails() {
   const saved = JSON.parse(localStorage.getItem('booking'));
@@ -14,8 +15,15 @@ function SingleBookingDetails() {
 
   return (
     <div className='container mt-5'>
-      <table class='table col-6 table-bordered'>
+      <table class='table table-bordered col-sm-6'>
         <tbody>
+          <tr>
+            <td colSpan={2}>
+              <Link to='/admin' className='btn btn-outline-info w-100 p-2'>
+                Go to dashboard
+              </Link>
+            </td>
+          </tr>
           <tr>
             <th scope='row'>Name</th>
             <td>{saved.fname + ' ' + saved.lname}</td>
@@ -63,7 +71,7 @@ function SingleBookingDetails() {
           <tr>
             <td colSpan={2}>
               <button
-                className='btn btn-primary w-100 p-2'
+                className='btn btn-info w-100 p-2'
                 onClick={confirmClickHandler}
               >
                 Confirm Booking

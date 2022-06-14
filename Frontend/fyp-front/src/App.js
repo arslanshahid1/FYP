@@ -18,6 +18,8 @@ import Admin from './components/Admin';
 import SingleBookingDetails from './components/SingleBookingDetails';
 import NotFound from './components/NotFound';
 import UserProfile from './components/UserProfile';
+import AdminBookings from './components/AdminBookings';
+import AdminContactUs from './components/AdminContactUs';
 
 function App() {
   const user = useSelector(selectUser);
@@ -30,6 +32,14 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/admin' element={user ? <Admin /> : <Login />} />
+        <Route
+          path='/admin-bookings'
+          element={user ? <AdminBookings /> : <Login />}
+        />
+        <Route
+          path='/admin-messages'
+          element={user ? <AdminContactUs /> : <Login />}
+        />
         <Route path='/about' element={<About />} />
         <Route path='/menu' element={<Menu />} />
         <Route path='/packages' element={<Packages />} />
