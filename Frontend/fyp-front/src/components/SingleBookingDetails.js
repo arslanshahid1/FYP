@@ -8,9 +8,12 @@ function SingleBookingDetails() {
   const [isConfirm, setConfirm] = useState(saved.bookingStatus);
 
   const confirmClickHandler = () => {
-    axios.put(`http://localhost:4000/api/bookings/${saved._id}`).then(() => {
-      setConfirm(true);
-    });
+    // axios.put(`http://localhost:4000/api/bookings/${saved._id}`).then(() => {
+    axios
+      .put(`https://arslan-fyp.herokuapp.com/api/bookings/${saved._id}`)
+      .then(() => {
+        setConfirm(true);
+      });
   };
 
   return (

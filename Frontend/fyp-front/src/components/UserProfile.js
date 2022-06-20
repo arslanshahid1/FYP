@@ -6,14 +6,17 @@ function UserProfile() {
   const userID = localStorage.getItem('id');
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:4000/api/bookings/${userID}`).then((res) => {
-      let comingUserData = res.data;
-      let arr = [];
-      comingUserData.map((booking) => {
-        return arr.push(booking);
+    // axios.get(`http://localhost:4000/api/bookings/${userID}`).then((res) => {
+    axios
+      .get(`https://arslan-fyp.herokuapp.com/api/bookings/${userID}`)
+      .then((res) => {
+        let comingUserData = res.data;
+        let arr = [];
+        comingUserData.map((booking) => {
+          return arr.push(booking);
+        });
+        setUserData([...arr]);
       });
-      setUserData([...arr]);
-    });
   });
 
   return (

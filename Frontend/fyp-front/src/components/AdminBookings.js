@@ -9,7 +9,8 @@ function AdminBookings() {
   let num = 1;
   const getData = () => {
     axios
-      .get('http://localhost:4000/api/bookings')
+      // .get('http://localhost:4000/api/bookings')
+      .get('https://arslan-fyp.herokuapp.com/api/bookings')
       .then((res) => {
         setBookings(res.data);
       })

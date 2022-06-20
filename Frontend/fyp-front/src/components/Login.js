@@ -39,25 +39,28 @@ function Login({ setLoginUser }) {
       );
       navigate('/admin');
     } else {
-      axios.post('http://localhost:4000/api/users/login', user).then((res) => {
-        if (res.data.message === 'User does not exist.') {
-          toast.error('User does not exist', options);
-        } else if (res.data.message === 'Invalid password.') {
-          toast.error('Incorrect password', options);
-        } else {
-          localStorage.setItem('user', JSON.stringify(user));
-          localStorage.setItem('id', res.data.id);
-          dispatch(
-            login({
-              email: email,
-              password: password,
-              loggedIn: true,
-            })
-          );
+      // axios.post('http://localhost:4000/api/users/login', user).then((res) => {
+      axios
+        .post('https://arslan-fyp.herokuapp.com/api/users/login', user)
+        .then((res) => {
+          if (res.data.message === 'User does not exist.') {
+            toast.error('User does not exist', options);
+          } else if (res.data.message === 'Invalid password.') {
+            toast.error('Incorrect password', options);
+          } else {
+            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('id', res.data.id);
+            dispatch(
+              login({
+                email: email,
+                password: password,
+                loggedIn: true,
+              })
+            );
 
-          navigate('/booking');
-        }
-      });
+            navigate('/booking');
+          }
+        });
     }
   };
 

@@ -31,7 +31,8 @@ function Signup() {
     const { name, email, password } = user;
     if (name && email && password) {
       axios
-        .post('http://localhost:4000/api/users/register', user)
+        // .post('http://localhost:4000/api/users/register', user)
+        .post('https://arslan-fyp.herokuapp.com/api/users/register', user)
         .then((res) => {
           if (res.data.message === 'User with given email already exists.')
             toast.error(res.data.message, options);

@@ -36,12 +36,15 @@ function Contact() {
     const contactData = { name, email, phone, message, messageTime };
     console.log(contactData);
 
-    axios.post('http://localhost:4000/api/contacts', contactData).then(() => {
-      toast.success(
-        'Thank you for contacting us. We will get back to you soon.',
-        options
-      );
-    });
+    // axios.post('http://localhost:4000/api/contacts', contactData).then(() => {
+    axios
+      .post('https://arslan-fyp.herokuapp.com/api/contacts', contactData)
+      .then(() => {
+        toast.success(
+          'Thank you for contacting us. We will get back to you soon.',
+          options
+        );
+      });
   };
 
   useEffect(() => {

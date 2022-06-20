@@ -67,9 +67,12 @@ function Booking() {
       bookingStatus: bookingStatus,
     };
 
-    axios.post('http://localhost:4000/api/bookings', bookingdata).then(() => {
-      toast('Thank you. Our admin will soon confirm your booking.', options);
-    });
+    // axios.post('http://localhost:4000/api/bookings', bookingdata).then(() => {
+    axios
+      .post('https://arslan-fyp.herokuapp.com/api/bookings', bookingdata)
+      .then(() => {
+        toast('Thank you. Our admin will soon confirm your booking.', options);
+      });
   }
 
   return (

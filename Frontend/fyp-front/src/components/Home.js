@@ -53,20 +53,20 @@ function Home() {
     <>
       <BackToTop />
 
-      <div className='landing  mt-sm-5 container px-0' data-aos='fade-down'>
+      <div className='landing  container px-0' data-aos='fade-down'>
         <div className='row'>
-          <div className='col-md-6 order-2 order-sm-1 mt-3 mt-sm-0'>
+          <div className='col-sm-6 order-2 order-sm-1 mt-3 mt-sm-0'>
             <div className='col-12'>
               <img src='images/image6.jpg' width='100%' alt='' />
             </div>
           </div>
-          <div className='col-md-6 order-1 order-sm-2 mt-3 mt-sm-0'>
-            <div className='col-12 mt-sm-5'>
+          <div className='col-sm-6 order-1 order-sm-2 mt-3 mt-sm-0 d-flex flex-column '>
+            <div className='col-12 d-flex flex-column  justify-content-center'>
               <h5>The best for couples</h5>
               <h1 className='display-3 mt-3'>Plan and book your wedding</h1>
               <button
                 className='btn btn-outline-dark py-3 px-4 mt-3'
-                onClick={() => window.scrollTo(0, 750)}
+                onClick={() => window.scrollTo(0, 730)}
               >
                 Get Started
               </button>
@@ -76,7 +76,7 @@ function Home() {
       </div>
 
       <div className='advantages container px-0' data-aos='fade-up'>
-        <div className='row mt-5'>
+        <div className='row'>
           <div className='col-md-6'>
             <div className='col-12'>
               <h5>Why Us</h5>

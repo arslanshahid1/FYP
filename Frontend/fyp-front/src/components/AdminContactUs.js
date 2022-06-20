@@ -7,7 +7,8 @@ function AdminContactUs() {
   let num = 1;
   const getData = () => {
     axios
-      .get('http://localhost:4000/api/contacts')
+      // .get('http://localhost:4000/api/contacts')
+      .get('https://arslan-fyp.herokuapp.com/api/contacts')
       .then((res) => {
         setMessages(res.data);
       })
